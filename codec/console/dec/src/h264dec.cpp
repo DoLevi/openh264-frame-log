@@ -237,6 +237,7 @@ void H264DecodeInstance (ISVCDecoder* pDecoder, const char* kpH264FileName, cons
 
   uint8_t* pData[3] = {NULL};
   uint8_t* pDst[3] = {NULL};
+  uint8_t* pDst[3] = {NULL};
   SBufferInfo sDstBufInfo;
 
   int32_t iBufPos = 0;
