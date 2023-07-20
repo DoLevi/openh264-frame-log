@@ -380,6 +380,7 @@ void H264DecodeInstance (ISVCDecoder* pDecoder, const char* kpH264FileName, cons
 //~end for
 
     iStart = WelsTime();
+    printf("encoding %d: %luus\n", iFrameCount, iStart);
     pData[0] = NULL;
     pData[1] = NULL;
     pData[2] = NULL;
@@ -398,6 +399,7 @@ void H264DecodeInstance (ISVCDecoder* pDecoder, const char* kpH264FileName, cons
       pDst[2] = sDstBufInfo.pDst[2];
     }
     iEnd    = WelsTime();
+    printf("encoded %d: %luus\n", iFrameCount, iEnd);
     iTotal += iEnd - iStart;
     if (sDstBufInfo.iBufferStatus == 1) {
       cOutputModule.Process ((void**)pDst, &sDstBufInfo, pYuvFile);
