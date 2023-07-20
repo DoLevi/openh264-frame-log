@@ -956,7 +956,9 @@ int ProcessEncoding (ISVCEncoder* pPtrEnc, int argc, char** argv, bool bConfigFi
     // To encoder this frame
     iStart = WelsTime();
     pSrcPic->uiTimeStamp = WELS_ROUND (iFrameIdx * (1000 / sSvcParam.fMaxFrameRate));
+    printf("encoding %d: %luus\n", iFrameIdx, iStart);
     int iEncFrames = pPtrEnc->EncodeFrame (pSrcPic, &sFbi);
+    printf("encoded %d: %luus\n", iFrameIdx, WelsTime());
     iTotal += WelsTime() - iStart;
     ++ iFrameIdx;
     if (videoFrameTypeSkip == sFbi.eFrameType) {
